@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gene Attribute Explorer v0.4.1</title>
+
+<script src="js/jquery-2.1.0.min.js"></script>
+<!-- <script src="js/d3.min.js"></script> -->
+<script src="http://d3js.org/d3.v4.js"></script>
+
+<script type="text/javascript" src="js/oncoprint5.js"></script>
+<script type='text/javascript' src="js/correxplorer4.js"></script>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="stylesheet" href="css/oncoprint.css">
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+<div class="container" id="wrap">
+	<div class="row">
+		<div class="seven columns" id="left_col">
+			<h2>Gene Attribute Explorer <img id="loader" src="images/ajax-loader1.gif" alt="Please wait, loading data..." /></h2>
+
+			<div class="row">
+				<div class="eight columns">
+					<h5>SORTING WEIGHTS</h5>
+					<div class="row">
+						<div class="six columns">
+
+								<label for="impact_hi">High Impact</label>
+							    <input type='text' id="impact_hi"  value="0.5" size="4" class="sorter"><br>
+							    <label for="impact_mod">Moderate Impact</label>
+							    <input type='text' id="impact_mod" value="0.25" size="4" class="sorter"><br>
+
+							    <label for="sv">SV</label>
+							    <input type='text' id="sv" value="0.1" size="4" class="sorter"><br>
+							    <label for="cnv">CNV</label>
+							    <input type='text' id="cnv" value="0.1" size="4" class="sorter"><br>
+							<label for="rna">RNA Z-score</label>
+							    <input type='text' id="rna" value="0.1" size="4" class="sorter">
+							  <br>
+							<label for="sort_func">Sorting Algorithm: </label>
+							    <select id="sort_func">
+							      <option value="abs_value">by Absolute Value</option>
+							      <option value="value" selected="selected">by Value</option>
+							      <option value="similarity">by Similarity</option>
+							      <option value="alphabetic">Alphabetically</option>
+							    </select>
+						</div>
+						<div class="six columns">
+							<label for="genes">Genes</label>
+							<textarea name="genes" id="genes" class="sorter" rows="15" title="Be careful not to end with a trailing comma!">ATR, ATRX, BRAF, BRCA1, BRCA2, CDK4, CDK6, CDKN2A, CDKN2B, DNMT3A, EGFR, ERBB3, ERG, FGFR3, FLT3, HGF, IDH1, IDO2, KDR, KIT, MDM2, MET, MGMT, NF1, NFKB1, PDGFRA, PHLPP2, PIK3CA, PIK3CG, PIK3R1, PSMD2, PTEN, RB1, ROS1, SMO, STAG2, SUFU, TERT, TP53</textarea>
+
+							    <br>
+							<button id="sort" >Redraw Matrix</button>
+							<p><small>Change any value, then press the REDRAW MATRIX button.</small></p>
+							<input type="radio" name="keep_symmetry" value="" checked="checked" id="keep_symmetry" style="display: none;">
+						</div>
+					</div>
+				</div>
+				<div class="four columns">
+					<h5>LEGEND</h5>
+					<p><img src="images/onco4_03.png"></p>
+					<p><label for="zoom">Zoom</label>
+					<input type="range" min="1.0" max="3.0" value="1.0" id="zoom" step="0.1" oninput="outputUpdate(value)">
+					<output for="zoom" id="zoom_level">1.0</output>
+					</p>
+				</div>
+			</div>
+				<p><hr><b>Hover</b> over a <b>circle</b> to see <b>data values</b>.<br>
+<!-- 				Hover over a column label or row label to see sorting scores.<br>
+ -->				<b>Click</b> on a <b>column</b> label or <b>row</b> label to <b>sort</b>.</p>
+ 	<small>v0.4.1, with d3 v4</small>
+		</div>
+
+		<div class="five columns" id="right_col">
+			<div class="tooltip"></div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
