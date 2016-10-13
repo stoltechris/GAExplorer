@@ -9,25 +9,26 @@ rect, path { fill: #bbb;}
 .focal path { stroke-width: 2px; stroke: white; mix-blend-mode: darken;}
 path.cnv { fill: #666; mix-blend-mode: multiply; }
 circle { fill: #bbb; }
+circle.neutral { fill: #eaeaea; }
 circle:hover { cursor: pointer; opacity: 0.7; }
 .deep { fill: #8aeefb; }
 .HIGH, .HIGH rect { fill: #58a57b; }
 .MODERATE, .MODERATE rect { fill: #b8d69a; }
 .Breakpoint { fill: white; }
 
-div.tool_tip {	
-    position: absolute;			
-    text-align: left;			
-    min-width: 60px;					
-    min-height: 28px;					
-    padding: 8px 16px 11px 11px;				
-    font: 12px "Work Sans", sans-serif;	
-    color: #ddd;	
-    background: #444;		
-    border-radius: 8px;		
-    box-shadow: 6px 6px 8px #aaa;	
-    pointer-events: none;	
-    z-index: 11;		
+div.tool_tip {
+    position: absolute;
+    text-align: left;
+    min-width: 60px;
+    min-height: 28px;
+    padding: 8px 16px 11px 11px;
+    font: 12px "Work Sans", sans-serif;
+    color: #ddd;
+    background: #444;
+    border-radius: 8px;
+    box-shadow: 6px 6px 8px #aaa;
+    pointer-events: none;
+    z-index: 11;
 }
 div.tool_tip .header {
 	font-size: 14px;
@@ -52,13 +53,13 @@ div.tool_tip .header {
 .pixel { mix-blend-mode: multiply; }
 .square { opacity: 0.9; }
 .square:hover
-{ 
+{
   opacity: 1;
   stroke: #444;
   stroke-width: 1px;
 }
 .tick:hover
-{ 
+{
   fill: #0FA0CE;
 }
 div.tooltip

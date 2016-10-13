@@ -244,6 +244,8 @@ var main = function(corr, label_col, label_row){ //console.log("corr", corr, lab
           pixel.append('circle')
             .attr('class', function(d) {
                 var self = allData[label_col[d.j]][label_row[d.i]];
+                // make normal samples fade back
+                if(self._focal == false && self.Variant_Impact == "-" && self._cnv == "normal" && self.SV == "-") { self.Variant_Impact = "neutral"; }
                 return (self.Variant_Impact !== '-' ? self.Variant_Impact : null);
             })
             .attr('cx', scale(0.45))
